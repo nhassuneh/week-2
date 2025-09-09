@@ -36,8 +36,6 @@ def lowest_score(names, scores):
     # Return all names with the minimum score
     return names[min_indices]
 
-print(f"Lowest score student: {lowest_score(names, scores)}")
-
 def sort_names(names, scores):
     """
     Returns student names sorted in descending order of test scores.
