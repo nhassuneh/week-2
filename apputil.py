@@ -29,12 +29,11 @@ def lowest_score(names, scores):
     Returns:
         The name of the student with the lowest score
     """
-    # Find the minimum score
-    min_score = np.min(scores)
-    # Get indices of all students with the minimum score
-    min_indices = np.where(scores == min_score)[0]
-    # Return all names with the minimum score
-    return names[min_indices]
+    # Use argmin to find the index of the minimum score
+    min_index = np.argmin(scores)
+    
+    # Return the name at that index
+    return names[min_index]
 
 def sort_names(names, scores):
     """
