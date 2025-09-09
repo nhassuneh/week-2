@@ -29,11 +29,15 @@ def lowest_score(names, scores):
     Returns:
         The name of the student with the lowest score
     """
-    # Use argmin to find the index of the minimum score
-    min_index = np.argmin(scores)
-    
-    # Return the name at that index
-    return names[min_index]
+    # ensure numpy array as I was getting an error before
+    names = np.array(names)   
+    scores = np.array(scores)
+    # Find the minimum score
+    min_score = np.min(scores)
+    # Get indices of all students with the minimum score
+    min_indices = np.where(scores == min_score)[0]
+    # Return all names with the minimum score
+    return names[min_indices]
 
 def sort_names(names, scores):
     """
@@ -46,8 +50,14 @@ def sort_names(names, scores):
     Returns:
         numpy array of names sorted by scores (highest to lowest)
     """
-    # Use argsort to get indices that would sort scores in ascending order
-    sorted_indices = np.argsort(scores)
+    # Use argsort to sort the indices
+    # Then reverse with [::-1] to get descending order
     
-    # Reverse to get descending order and return names in that order
-    return names[sorted_indices[::-1]]
+    # ensure numpy array as I was getting an error before
+    names = np.array(names)   
+    scores = np.array(scores)
+
+    sorted_indices = np.argsort(scores)[::-1]
+    
+    # Return names in the sorted order
+    return names[sorted_indices]
