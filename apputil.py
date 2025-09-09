@@ -46,9 +46,8 @@ def sort_names(names, scores):
     Returns:
         numpy array of names sorted by scores (highest to lowest)
     """
-    # Use argsort to sort the indices
-    # Then reverse with [::-1] to get descending order
-    sorted_indices = np.argsort(scores)[::-1]
+    # Use argsort to get indices that would sort scores in ascending order
+    sorted_indices = np.argsort(scores)
     
-    # Return names in the sorted order
-    return names[sorted_indices]
+    # Reverse to get descending order and return names in that order
+    return names[sorted_indices[::-1]]
